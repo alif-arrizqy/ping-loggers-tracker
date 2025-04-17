@@ -250,7 +250,7 @@ class SiteInfoFetcher:
         """Get length of loggers from a specific IP address"""
         try:
             start_time = datetime.now()
-            Headers = {"Authorization": f"Bearer {os.getenv("EHUB_TOKEN")}"}
+            Headers = {"Authorization": f"Bearer {os.getenv('EHUB_TOKEN')}"}
             response = requests.get(f"http://{ip_address}/api/logger", headers=Headers, timeout=10)
             
             # Ensure response is valid
