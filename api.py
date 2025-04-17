@@ -16,6 +16,14 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def index():
+    """API endpoint to check if the service is running"""
+    return jsonify({
+        'status': 'success',
+        'message': 'Ping Data Logger Tracker API is running'
+    })
+
 @app.route('/ping_logs', methods=['GET'])
 def get_ping_logs():
     """API endpoint to get ping logs"""
