@@ -120,4 +120,6 @@ def get_length_loggers():
 
 
 if __name__ == '__main__':
+    logger.info("Starting Ping Data Logger Tracker API...")
+    logger.info(f"Running on port: {os.getenv('API_PORT', 5090)}")
     app.run(debug=True, host='0.0.0.0', port=os.getenv('API_PORT', 5090))
