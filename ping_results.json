@@ -1,0 +1,802 @@
+[
+  {
+    "timestamp": "2025-04-17 10:36:38",
+    "pr_code": "PR#141",
+    "site_name": "athabu",
+    "ip_address": "10.53.12.139",
+    "ping_success": true,
+    "ping_time_ms": 547,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:36:40",
+    "pr_code": "PR#135",
+    "site_name": "bori",
+    "ip_address": "10.53.12.75",
+    "ping_success": true,
+    "ping_time_ms": 534,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:36:42",
+    "pr_code": "PR#129",
+    "site_name": "renis",
+    "ip_address": "10.10.68.226",
+    "ping_success": true,
+    "ping_time_ms": 547,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:36:44",
+    "pr_code": "PR#137",
+    "site_name": "sunei",
+    "ip_address": "10.53.12.91",
+    "ping_success": true,
+    "ping_time_ms": 554,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:36:46",
+    "pr_code": "PR#153",
+    "site_name": "boldon",
+    "ip_address": "10.10.68.242",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:06",
+    "pr_code": "PR#118",
+    "site_name": "hukukecil",
+    "ip_address": "10.161.1.187",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:26",
+    "pr_code": "PR#99",
+    "site_name": "karuan",
+    "ip_address": "10.53.12.171",
+    "ping_success": true,
+    "ping_time_ms": 536,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:27",
+    "pr_code": "PR#100",
+    "site_name": "nanimori",
+    "ip_address": "10.53.12.203",
+    "ping_success": true,
+    "ping_time_ms": 553,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:29",
+    "pr_code": "PR#83",
+    "site_name": "silang",
+    "ip_address": "172.23.1.130",
+    "ping_success": true,
+    "ping_time_ms": 526,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:31",
+    "pr_code": "PR#121",
+    "site_name": "huhua",
+    "ip_address": "10.161.1.211",
+    "ping_success": true,
+    "ping_time_ms": 562,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:34",
+    "pr_code": "PR#91",
+    "site_name": "inyora",
+    "ip_address": "172.23.0.42",
+    "ping_success": true,
+    "ping_time_ms": 627,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:37",
+    "pr_code": "PR#172",
+    "site_name": "kamar",
+    "ip_address": "10.53.13.43",
+    "ping_success": true,
+    "ping_time_ms": 534,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:38",
+    "pr_code": "PR#113",
+    "site_name": "marantutul",
+    "ip_address": "10.161.2.43",
+    "ping_success": true,
+    "ping_time_ms": 543,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:41",
+    "pr_code": "PR#174",
+    "site_name": "sera",
+    "ip_address": "10.53.13.75",
+    "ping_success": true,
+    "ping_time_ms": 595,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:37:51",
+    "pr_code": "PR#86",
+    "site_name": "suma_tinggi",
+    "ip_address": "10.53.12.219",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:11",
+    "pr_code": "PR#79",
+    "site_name": "tomara",
+    "ip_address": "10.53.13.115",
+    "ping_success": true,
+    "ping_time_ms": 1811,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:25",
+    "pr_code": "PR#81",
+    "site_name": "tutupa",
+    "ip_address": "10.53.11.251",
+    "ping_success": true,
+    "ping_time_ms": 614,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:27",
+    "pr_code": "PR#117",
+    "site_name": "honitetu",
+    "ip_address": "172.23.2.42",
+    "ping_success": true,
+    "ping_time_ms": 562,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:30",
+    "pr_code": "PR#125",
+    "site_name": "mawe",
+    "ip_address": "10.53.11.219",
+    "ping_success": true,
+    "ping_time_ms": 538,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:31",
+    "pr_code": "PR#85",
+    "site_name": "sumae",
+    "ip_address": "172.23.1.210",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:38:51",
+    "pr_code": "PR#87",
+    "site_name": "tabajaya",
+    "ip_address": "10.53.12.227",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:11",
+    "pr_code": "PR#178",
+    "site_name": "boha",
+    "ip_address": "10.53.50.3 ",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:21",
+    "pr_code": "PR#109",
+    "site_name": "kainara",
+    "ip_address": "172.23.51.74",
+    "ping_success": true,
+    "ping_time_ms": 825,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:33",
+    "pr_code": "PR#191",
+    "site_name": "oha",
+    "ip_address": "172.23.51.42",
+    "ping_success": true,
+    "ping_time_ms": 574,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:35",
+    "pr_code": "PR#186",
+    "site_name": "bumi_rahmat",
+    "ip_address": "172.23.51.10",
+    "ping_success": true,
+    "ping_time_ms": 535,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:37",
+    "pr_code": "PR#185",
+    "site_name": "wasileo",
+    "ip_address": "10.151.160.44",
+    "ping_success": true,
+    "ping_time_ms": 519,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:39",
+    "pr_code": "PR#189",
+    "site_name": "tatangapu",
+    "ip_address": "10.151.160.60 ",
+    "ping_success": true,
+    "ping_time_ms": 0,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:43",
+    "pr_code": "PR#130",
+    "site_name": "maan",
+    "ip_address": "10.10.68.234",
+    "ping_success": true,
+    "ping_time_ms": 566,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:45",
+    "pr_code": "PR#192",
+    "site_name": "dorolamo_1",
+    "ip_address": "10.151.160.68",
+    "ping_success": true,
+    "ping_time_ms": 526,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:39:47",
+    "pr_code": "PR#97",
+    "site_name": "sariai",
+    "ip_address": "10.53.12.155",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:07",
+    "pr_code": "PR#182",
+    "site_name": "klayili",
+    "ip_address": "10.151.160.19",
+    "ping_success": true,
+    "ping_time_ms": 592,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:13",
+    "pr_code": "PR#107",
+    "site_name": "marfenfen",
+    "ip_address": "10.53.13.51",
+    "ping_success": true,
+    "ping_time_ms": 538,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:14",
+    "pr_code": "PR#92",
+    "site_name": "menarbu",
+    "ip_address": "10.53.11.195",
+    "ping_success": true,
+    "ping_time_ms": 565,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:16",
+    "pr_code": "PR#102",
+    "site_name": "sayori_sikama",
+    "ip_address": "172.23.2.162",
+    "ping_success": true,
+    "ping_time_ms": 562,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:19",
+    "pr_code": "PR#112",
+    "site_name": "sofyanin",
+    "ip_address": "10.161.1.219",
+    "ping_success": true,
+    "ping_time_ms": 547,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:21",
+    "pr_code": "PR#148",
+    "site_name": "sumano",
+    "ip_address": "10.53.12.123",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:40:41",
+    "pr_code": "PR#161",
+    "site_name": "ilili",
+    "ip_address": "10.53.12.163",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:01",
+    "pr_code": "PR#114",
+    "site_name": "mitak_kolam",
+    "ip_address": "10.53.13.59",
+    "ping_success": true,
+    "ping_time_ms": 540,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:03",
+    "pr_code": "PR#138",
+    "site_name": "sorry",
+    "ip_address": "10.53.12.99",
+    "ping_success": true,
+    "ping_time_ms": 544,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:05",
+    "pr_code": "PR#82",
+    "site_name": "wayatim",
+    "ip_address": "172.23.1.122",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:25",
+    "pr_code": "PR#195",
+    "site_name": "kelo",
+    "ip_address": "172.23.51.50",
+    "ping_success": true,
+    "ping_time_ms": 548,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:27",
+    "pr_code": "PR#145",
+    "site_name": "mirafan",
+    "ip_address": "172.23.0.18",
+    "ping_success": true,
+    "ping_time_ms": 580,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:29",
+    "pr_code": "PR#89",
+    "site_name": "sobiar",
+    "ip_address": "10.53.11.83",
+    "ping_success": true,
+    "ping_time_ms": 588,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:31",
+    "pr_code": "PR#187",
+    "site_name": "tosoa",
+    "ip_address": "172.24.0.227",
+    "ping_success": true,
+    "ping_time_ms": 0,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:41:41",
+    "pr_code": "PR#106",
+    "site_name": "kobror",
+    "ip_address": "10.161.1.251",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:01",
+    "pr_code": "PR#84",
+    "site_name": "kampung_baru_1",
+    "ip_address": "10.171.1.43",
+    "ping_success": true,
+    "ping_time_ms": 528,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:03",
+    "pr_code": "PR#78",
+    "site_name": "tabangame",
+    "ip_address": "10.53.11.3",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:23",
+    "pr_code": "PR#197",
+    "site_name": "imbu_imbu",
+    "ip_address": "172.23.51.66",
+    "ping_success": true,
+    "ping_time_ms": 537,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:24",
+    "pr_code": "PR#94",
+    "site_name": "niap",
+    "ip_address": "10.10.69.90",
+    "ping_success": true,
+    "ping_time_ms": 670,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:27",
+    "pr_code": "PR#194",
+    "site_name": "sosepe",
+    "ip_address": "172.23.51.18",
+    "ping_success": true,
+    "ping_time_ms": 625,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:29",
+    "pr_code": "PR#90",
+    "site_name": "yabore",
+    "ip_address": "10.53.11.179",
+    "ping_success": true,
+    "ping_time_ms": 532,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:31",
+    "pr_code": "PR#110",
+    "site_name": "eliasa",
+    "ip_address": "172.23.0.114",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:51",
+    "pr_code": "PR#88",
+    "site_name": "sandei",
+    "ip_address": "10.53.11.75",
+    "ping_success": true,
+    "ping_time_ms": 613,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:52",
+    "pr_code": "PR#168",
+    "site_name": "rumoy",
+    "ip_address": "10.53.13.11",
+    "ping_success": true,
+    "ping_time_ms": 523,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:54",
+    "pr_code": "PR#188",
+    "site_name": "lili",
+    "ip_address": "10.151.160.52 ",
+    "ping_success": true,
+    "ping_time_ms": 537,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:42:55",
+    "pr_code": "PR#199",
+    "site_name": "ocimaloleo",
+    "ip_address": "172.23.51.82",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:15",
+    "pr_code": "PR#179",
+    "site_name": "waan",
+    "ip_address": "10.53.50.11",
+    "ping_success": true,
+    "ping_time_ms": 627,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:17",
+    "pr_code": "PR#147",
+    "site_name": "bedare",
+    "ip_address": "10.10.68.218",
+    "ping_success": true,
+    "ping_time_ms": 534,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:19",
+    "pr_code": "PR#126",
+    "site_name": "muwinbow",
+    "ip_address": "172.23.2.114",
+    "ping_success": true,
+    "ping_time_ms": 534,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:21",
+    "pr_code": "PR#156",
+    "site_name": "makaroro",
+    "ip_address": "172.23.0.2",
+    "ping_success": true,
+    "ping_time_ms": 539,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:24",
+    "pr_code": "PR#193",
+    "site_name": "upt_sp2_patlean",
+    "ip_address": "10.151.160.76",
+    "ping_success": true,
+    "ping_time_ms": 540,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:26",
+    "pr_code": "PR#171",
+    "site_name": "sumber_agung",
+    "ip_address": "10.53.13.35",
+    "ping_success": true,
+    "ping_time_ms": 525,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:28",
+    "pr_code": "PR#98",
+    "site_name": "aisandami",
+    "ip_address": "172.23.2.130",
+    "ping_success": true,
+    "ping_time_ms": 517,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:29",
+    "pr_code": "PR#151",
+    "site_name": "puragi",
+    "ip_address": "10.53.12.59",
+    "ping_success": true,
+    "ping_time_ms": 559,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:31",
+    "pr_code": "PR#155",
+    "site_name": "siri_siri",
+    "ip_address": "10.161.1.171",
+    "ping_success": true,
+    "ping_time_ms": 549,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:33",
+    "pr_code": "PR#131",
+    "site_name": "sorowan",
+    "ip_address": "10.10.69.2",
+    "ping_success": true,
+    "ping_time_ms": 576,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:39",
+    "pr_code": "PR#124",
+    "site_name": "nij",
+    "ip_address": "172.23.2.90",
+    "ping_success": true,
+    "ping_time_ms": 543,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:42",
+    "pr_code": "PR#105",
+    "site_name": "warloi",
+    "ip_address": "10.53.13.27",
+    "ping_success": true,
+    "ping_time_ms": 522,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:43",
+    "pr_code": "PR#101",
+    "site_name": "wombu",
+    "ip_address": "172.23.2.154",
+    "ping_success": true,
+    "ping_time_ms": 548,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:43:46",
+    "pr_code": "PR#132",
+    "site_name": "aisa",
+    "ip_address": "10.10.69.10",
+    "ping_success": false,
+    "ping_time_ms": null,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:06",
+    "pr_code": "PR#149",
+    "site_name": "korewatara",
+    "ip_address": "10.10.69.26",
+    "ping_success": true,
+    "ping_time_ms": 543,
+    "length_loggers": 8,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:08",
+    "pr_code": "PR#111",
+    "site_name": "teineman",
+    "ip_address": "172.23.1.162",
+    "ping_success": true,
+    "ping_time_ms": 554,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:10",
+    "pr_code": "PR#104",
+    "site_name": "maikor",
+    "ip_address": "172.23.0.98",
+    "ping_success": true,
+    "ping_time_ms": 537,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:12",
+    "pr_code": "PR#190",
+    "site_name": "sekely",
+    "ip_address": "172.23.51.34",
+    "ping_success": true,
+    "ping_time_ms": 512,
+    "length_loggers": 1,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:14",
+    "pr_code": "PR#115",
+    "site_name": "werlumdity",
+    "ip_address": "10.161.2.59",
+    "ping_success": true,
+    "ping_time_ms": 535,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:17",
+    "pr_code": "PR#93",
+    "site_name": "isenebuai",
+    "ip_address": "10.53.12.67",
+    "ping_success": true,
+    "ping_time_ms": 546,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:18",
+    "pr_code": "PR#119",
+    "site_name": "sukowati",
+    "ip_address": "10.161.1.195",
+    "ping_success": true,
+    "ping_time_ms": 510,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:20",
+    "pr_code": "PR#198",
+    "site_name": "kaireu",
+    "ip_address": "172.23.0.106",
+    "ping_success": true,
+    "ping_time_ms": 534,
+    "length_loggers": 0,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:22",
+    "pr_code": "PR#80",
+    "site_name": "nondang",
+    "ip_address": "10.53.11.27",
+    "ping_success": true,
+    "ping_time_ms": 541,
+    "length_loggers": null,
+    "saved_to_db": true
+  },
+  {
+    "timestamp": "2025-04-17 10:44:24",
+    "pr_code": "PR#196",
+    "site_name": "saketa",
+    "ip_address": "172.23.51.58",
+    "ping_success": true,
+    "ping_time_ms": 522,
+    "length_loggers": 1,
+    "saved_to_db": true
+  }
+]
