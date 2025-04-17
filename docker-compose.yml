@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    container_name: ping_datalog_tracker
+    ports:
+      - "5090:5090"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    restart: unless-stopped
