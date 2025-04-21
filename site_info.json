@@ -3,480 +3,560 @@
     "pr_code": "PR#141",
     "site_name": "athabu",
     "ip_address": "10.53.12.139",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#135",
     "site_name": "bori",
     "ip_address": "10.53.12.75",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "antrian installasi"
   },
   {
     "pr_code": "PR#129",
     "site_name": "renis",
     "ip_address": "10.10.68.226",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#137",
     "site_name": "sunei",
     "ip_address": "10.53.12.91",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#153",
     "site_name": "boldon",
     "ip_address": "10.10.68.242",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#118",
     "site_name": "hukukecil",
     "ip_address": "10.161.1.187",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#99",
     "site_name": "karuan",
     "ip_address": "10.53.12.171",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#100",
     "site_name": "nanimori",
     "ip_address": "10.53.12.203",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#83",
     "site_name": "silang",
     "ip_address": "172.23.1.130",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#121",
     "site_name": "huhua",
     "ip_address": "10.161.1.211",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#91",
     "site_name": "inyora",
     "ip_address": "172.23.0.42",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#172",
     "site_name": "kamar",
     "ip_address": "10.53.13.43",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#113",
     "site_name": "marantutul",
     "ip_address": "10.161.2.43",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#174",
     "site_name": "sera",
     "ip_address": "10.53.13.75",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#86",
     "site_name": "suma_tinggi",
     "ip_address": "10.53.12.219",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#79",
     "site_name": "tomara",
     "ip_address": "10.53.13.115",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#81",
     "site_name": "tutupa",
     "ip_address": "10.53.11.251",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#117",
     "site_name": "honitetu",
     "ip_address": "172.23.2.42",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#125",
     "site_name": "mawe",
     "ip_address": "10.53.11.219",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#85",
     "site_name": "sumae",
     "ip_address": "172.23.1.210",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#87",
     "site_name": "tabajaya",
     "ip_address": "10.53.12.227",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#178",
     "site_name": "boha",
     "ip_address": "10.53.50.3 ",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#109",
     "site_name": "kainara",
     "ip_address": "172.23.51.74",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#191",
     "site_name": "oha",
     "ip_address": "172.23.51.42",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#186",
     "site_name": "bumi_rahmat",
     "ip_address": "172.23.51.10",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#185",
     "site_name": "wasileo",
     "ip_address": "10.151.160.44",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#189",
     "site_name": "tatangapu",
     "ip_address": "10.151.160.60 ",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#130",
     "site_name": "maan",
     "ip_address": "10.10.68.234",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#192",
     "site_name": "dorolamo_1",
     "ip_address": "10.151.160.68",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#97",
     "site_name": "sariai",
     "ip_address": "10.53.12.155",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#182",
     "site_name": "klayili",
     "ip_address": "10.151.160.19",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#107",
     "site_name": "marfenfen",
     "ip_address": "10.53.13.51",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#92",
     "site_name": "menarbu",
     "ip_address": "10.53.11.195",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#102",
     "site_name": "sayori_sikama",
     "ip_address": "172.23.2.162",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#112",
     "site_name": "sofyanin",
     "ip_address": "10.161.1.219",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#148",
     "site_name": "sumano",
     "ip_address": "10.53.12.123",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#161",
     "site_name": "ilili",
     "ip_address": "10.53.12.163",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#114",
     "site_name": "mitak_kolam",
     "ip_address": "10.53.13.59",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#138",
     "site_name": "sorry",
     "ip_address": "10.53.12.99",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#82",
     "site_name": "wayatim",
     "ip_address": "172.23.1.122",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#195",
     "site_name": "kelo",
     "ip_address": "172.23.51.50",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#145",
     "site_name": "mirafan",
     "ip_address": "172.23.0.18",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#89",
     "site_name": "sobiar",
     "ip_address": "10.53.11.83",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#187",
     "site_name": "tosoa",
     "ip_address": "172.24.0.227",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#106",
     "site_name": "kobror",
     "ip_address": "10.161.1.251",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#84",
     "site_name": "kampung_baru_1",
     "ip_address": "10.171.1.43",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#78",
     "site_name": "tabangame",
     "ip_address": "10.53.11.3",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#197",
     "site_name": "imbu_imbu",
     "ip_address": "172.23.51.66",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#94",
     "site_name": "niap",
     "ip_address": "10.10.69.90",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#194",
     "site_name": "sosepe",
     "ip_address": "172.23.51.18",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#90",
     "site_name": "yabore",
     "ip_address": "10.53.11.179",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#110",
     "site_name": "eliasa",
     "ip_address": "172.23.0.114",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#88",
     "site_name": "sandei",
     "ip_address": "10.53.11.75",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#168",
     "site_name": "rumoy",
     "ip_address": "10.53.13.11",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#188",
     "site_name": "lili",
     "ip_address": "10.151.160.52 ",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#199",
     "site_name": "ocimaloleo",
     "ip_address": "172.23.51.82",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#179",
     "site_name": "waan",
     "ip_address": "10.53.50.11",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#147",
     "site_name": "bedare",
     "ip_address": "10.10.68.218",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#126",
     "site_name": "muwinbow",
     "ip_address": "172.23.2.114",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#156",
     "site_name": "makaroro",
     "ip_address": "172.23.0.2",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#193",
     "site_name": "upt_sp2_patlean",
     "ip_address": "10.151.160.76",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#171",
     "site_name": "sumber_agung",
     "ip_address": "10.53.13.35",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#98",
     "site_name": "aisandami",
     "ip_address": "172.23.2.130",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#151",
     "site_name": "puragi",
     "ip_address": "10.53.12.59",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#155",
     "site_name": "siri_siri",
     "ip_address": "10.161.1.171",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#131",
     "site_name": "sorowan",
     "ip_address": "10.10.69.2",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#124",
     "site_name": "nij",
     "ip_address": "172.23.2.90",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#105",
     "site_name": "warloi",
     "ip_address": "10.53.13.27",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#101",
     "site_name": "wombu",
     "ip_address": "172.23.2.154",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#132",
     "site_name": "aisa",
     "ip_address": "10.10.69.10",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#149",
     "site_name": "korewatara",
     "ip_address": "10.10.69.26",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#111",
     "site_name": "teineman",
     "ip_address": "172.23.1.162",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#104",
     "site_name": "maikor",
     "ip_address": "172.23.0.98",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#190",
     "site_name": "sekely",
     "ip_address": "172.23.51.34",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#115",
     "site_name": "werlumdity",
     "ip_address": "10.161.2.59",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#93",
     "site_name": "isenebuai",
     "ip_address": "10.53.12.67",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "FULL Talis5"
   },
   {
     "pr_code": "PR#119",
     "site_name": "sukowati",
     "ip_address": "10.161.1.195",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#198",
     "site_name": "kaireu",
     "ip_address": "172.23.0.106",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   },
   {
     "pr_code": "PR#80",
     "site_name": "nondang",
     "ip_address": "10.53.11.27",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "MIX Talis5"
   },
   {
     "pr_code": "PR#196",
     "site_name": "saketa",
     "ip_address": "172.23.51.58",
-    "status_sites": "Active"
+    "status_sites": "Active",
+    "battery_version": "JS PRO"
   }
 ]
