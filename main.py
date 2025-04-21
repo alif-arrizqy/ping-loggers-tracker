@@ -39,6 +39,7 @@ class SiteInfoFetcher:
                     'site_name': site.get('site_name'),
                     'ip_address': site.get('ip_site'),
                     'status_sites': site.get('status_sites'),
+                    'battery_version': site.get('battery_version'),
                 } for site in data['data'] if site.get('status_sites') == 'Active'
             ]
             
@@ -83,6 +84,7 @@ class SiteInfoFetcher:
             ip_address = site.get('ip_address') or site.get('ip_site')
             site_name = site.get('site_name')
             pr_code = site.get('pr_code', 'UNKNOWN')
+            battery_version = site.get('battery_version', 'UNKNOWN')
             
             if not ip_address:
                 logger.warning(f"No IP address found for site: {site_name}")
@@ -100,7 +102,7 @@ class SiteInfoFetcher:
                 length_loggers_data = None
                 if ping_result.get('success', False):
                     logger.info(f"Checking loggers for {site_name} at {ip_address}")
-                    logger_result = self.length_loggers_site(ip_address)
+                    logger_result = self.length_loggers_site(ip_address, battery_version)
                     if logger_result.get('success', False):
                         length_loggers_data = logger_result.get('data')
                         logger.info(f"Found {length_loggers_data} loggers for {site_name}")
@@ -123,6 +125,7 @@ class SiteInfoFetcher:
                         pr_code=pr_code, 
                         site_name=site_name,
                         ip_address=ip_address,
+                        battery_version=battery_version,
                         ping_success=ping_success,
                         ping_time_ms=ping_time_ms,
                     )
@@ -160,6 +163,7 @@ class SiteInfoFetcher:
                     'pr_code': pr_code,
                     'site_name': site_name,
                     'ip_address': ip_address,
+                    'battery_version': battery_version,
                     'ping_success': ping_success,
                     'ping_time_ms': ping_time_ms,
                     'length_loggers': length_loggers_data,
