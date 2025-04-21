@@ -250,56 +250,135 @@ class SiteInfoFetcher:
                 "error": str(e)
             }
     
-    def length_loggers_site(self, ip_address):
-        """Get length of loggers from a specific IP address"""
+    def length_loggers_site(self, ip_address, battery_version):
+        """Get length of loggers from a specific IP address based on battery version"""
         try:
             start_time = datetime.now()
             Headers = {"Authorization": f"Bearer {os.getenv('EHUB_TOKEN')}"}
-            response = requests.get(f"http://{ip_address}/api/logger", headers=Headers, timeout=10)
             
-            # Ensure response is valid
-            response.raise_for_status()
+            # Initialize total logger count
+            total_loggers_count = 0
             
-            data = response.json()
+            # Determine which endpoint(s) to use based on battery version
+            if battery_version and "TALIS5" in battery_version.upper():
+                # For any TALIS5-related battery versions (FULL or MIX)
+                logger.info(f"Using Talis5 endpoint for {ip_address} with battery version {battery_version}")
+                
+                # Try fetching Talis5 data with better error handling
+                talis_loggers_count = 0
+                try:
+                    response_talis = requests.get(f"http://{ip_address}/api/logger/talis", headers=Headers, timeout=10)
+                    response_talis.raise_for_status()
+                    data_talis = response_talis.json()
+                    
+                    # Calculate Talis5 logger count
+                    if "data" in data_talis:
+                        logger.info(f"site {ip_address} message: {data_talis.get('message')}")
+                        if data_talis.get("message") == "Success":
+                            talis_data = data_talis["data"]
+                            # Sum the length of arrays for each interface
+                            mppt_count = len(talis_data.get("mppt", []))
+                            usb0_count = len(talis_data.get("usb0", []))
+                            usb1_count = len(talis_data.get("usb1", []))
+                        
+                            talis_loggers_count = mppt_count + usb0_count + usb1_count
+                            logger.info(f"Talis5 loggers: MPPT={mppt_count}, USB0={usb0_count}, USB1={usb1_count}, Talis Total={talis_loggers_count}")
+                        else:
+                            # Fallback if message isn't "Success" but data exists
+                            talis_loggers_count = len(data_talis.get("data", []))
+                            logger.info(f"Talis5 loggers count (from data array): {talis_loggers_count}")
+                    else:
+                        logger.warning(f"Unexpected Talis5 response structure from {ip_address}: Missing 'data' key")
+                        
+                except requests.exceptions.RequestException as e:
+                    logger.error(f"Error fetching Talis5 data from {ip_address}: {e}")
+                except (ValueError, json.JSONDecodeError) as e:
+                    logger.error(f"JSON decode error in Talis5 response from {ip_address}: {e}")
+                except Exception as e:
+                    logger.error(f"Unexpected error processing Talis5 data from {ip_address}: {e}")
+                
+                total_loggers_count += talis_loggers_count
+                
+                # For MIX TALIS5, we also need to check the JSPro endpoint
+                if "MIX" in battery_version.upper():
+                    logger.info(f"MIX TALIS5 detected, also checking JSPro endpoint for {ip_address}")
+                    jspro_loggers_count = 0
+                    
+                    # Try fetching JSPro data with better error handling
+                    try:
+                        response_jspro = requests.get(f"http://{ip_address}/api/logger", headers=Headers, timeout=10)
+                        response_jspro.raise_for_status()
+                        data_jspro = response_jspro.json()
+                        
+                        # Handle JSPro response structure
+                        if "data" in data_jspro:
+                            logger.info(f"site {ip_address} message: {data_jspro.get('message')}")
+                            if data_jspro.get("message") == "Success":
+                                jspro_data = len(data_jspro["data"])
+                                jspro_loggers_count = jspro_data
+                                logger.info(f"JSPro loggers count: {jspro_loggers_count}")
+                            else:
+                                # Fallback if message isn't "Success" but data exists
+                                jspro_loggers_count = len(data_jspro.get("data", []))
+                                logger.info(f"JSPro loggers count (from data array): {jspro_loggers_count}")
+                        else:
+                            jspro_loggers_count = len(data_jspro.get("data", []))
+                            logger.info(f"JSPro loggers count (from data array): {jspro_loggers_count}")
+                            
+                    except requests.exceptions.RequestException as e:
+                        logger.error(f"Error fetching JSPro data from {ip_address}: {e}")
+                    except (ValueError, json.JSONDecodeError) as e:
+                        logger.error(f"JSON decode error in JSPro response from {ip_address}: {e}")
+                    except Exception as e:
+                        logger.error(f"Unexpected error processing JSPro data from {ip_address}: {e}")
+                    
+                    total_loggers_count += jspro_loggers_count
+                    logger.info(f"Total loggers for MIX TALIS5: Talis={talis_loggers_count}, JSPro={jspro_loggers_count}, Combined={total_loggers_count}")
+            
+            else:
+                # Default to JSPro endpoint for all other battery types
+                logger.info(f"Using JSPro endpoint for {ip_address} with battery version {battery_version}")
+                
+                # Try fetching JSPro data with better error handling
+                try:
+                    response = requests.get(f"http://{ip_address}/api/logger", headers=Headers, timeout=10)
+                    response.raise_for_status()
+                    data = response.json()
+                    
+                    # Handle JSPro response structure
+                    if isinstance(data, list):
+                        total_loggers_count = len(data)
+                        logger.info(f"JSPro loggers count: {total_loggers_count}")
+                    else:
+                        logger.error(f"Unexpected JSPro data structure from {ip_address}: {type(data)}")
+                        
+                except requests.exceptions.RequestException as e:
+                    logger.error(f"Error fetching JSPro data from {ip_address}: {e}")
+                except (ValueError, json.JSONDecodeError) as e:
+                    logger.error(f"JSON decode error in JSPro response from {ip_address}: {e}")
+                except Exception as e:
+                    logger.error(f"Unexpected error processing JSPro data from {ip_address}: {e}")
+            
+            # Calculate response time
             end_time = datetime.now()
             response_time = (end_time - start_time).total_seconds() * 1000  # Convert to ms
-            
-            # Handle different response structures
-            if isinstance(data, list):
-                loggers_count = len(data)
-            else:
-                loggers_count = 0
-                logger.error(f"Unexpected loggers data structure: {type(data)}")
             
             return {
                 "success": True,
                 "response_time": response_time,
                 "method": "GET",
-                "data": loggers_count
+                "data": total_loggers_count,
+                "battery_version": battery_version
             }
-        except requests.exceptions.RequestException as e:
-            logger.error(f"HTTP error fetching loggers for {ip_address}: {e}")
-            return {
-                "success": False,
-                "response_time": None,
-                "method": "GET",
-                "error": str(e)
-            }
-        except (ValueError, json.JSONDecodeError) as e:
-            logger.error(f"JSON decode error for loggers at {ip_address}: {e}")
-            return {
-                "success": False,
-                "response_time": None,
-                "method": "GET",
-                "error": f"Invalid JSON response: {str(e)}"
-            }
+            
         except Exception as e:
-            logger.error(f"Unexpected error fetching loggers for {ip_address}: {e}")
+            logger.error(f"Unexpected error in length_loggers_site for {ip_address}: {e}")
             return {
                 "success": False,
                 "response_time": None,
                 "method": "GET",
-                "error": str(e)
+                "error": str(e),
+                "battery_version": battery_version
             }
 
 def main():
