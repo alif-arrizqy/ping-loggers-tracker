@@ -34,7 +34,11 @@ def get_ping_logs():
         site_name = request.args.get('site_name')
         
         logs = Database.get_ping_logs(limit, offset, site_name)
-
+        
+        # convert time from utc to Jakarta time
+        for log in logs:
+            log['timestamp'] = (datetime.strptime(log['timestamp'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+        
         # Count for pagination
         total_count = len(logs)  # Just a simple implementation
         
@@ -73,6 +77,10 @@ def get_summary():
         # Add pr_code with issue
         down_sites = Database.get_down_sites(hours)
         
+        # convert last_check from utc to Jakarta time
+        for site in down_sites:
+            site['last_check'] = (datetime.strptime(site['last_check'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+        
         # Format the response
         return jsonify({
             'status': 'success',
@@ -98,6 +106,10 @@ def get_length_loggers():
         site_name = request.args.get('site_name')
         
         logs = Database.get_length_loggers(limit, offset, site_name)
+        
+        # convert time from utc to Jakarta time
+        for log in logs:
+            log['timestamp'] = (datetime.strptime(log['timestamp'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
 
         # Count for pagination
         total_count = len(logs)  # Just a simple implementation
