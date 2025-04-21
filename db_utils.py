@@ -154,7 +154,7 @@ class Database:
             cursor = connection.cursor(cursor_factory=RealDictCursor)
             
             # Build query with optional filters
-            query = "SELECT timestamp, pr_code, site_name, ip_address, ping_success, ping_time_ms FROM ping_logs"
+            query = "SELECT timestamp, pr_code, site_name, ip_address, battery_version, ping_success, ping_time_ms FROM ping_logs"
             params = []
             
             conditions = []
@@ -232,7 +232,7 @@ class Database:
             cursor = connection.cursor(cursor_factory=RealDictCursor)
             
             # Build query with optional filters
-            query = "SELECT timestamp, pr_code, site_name, ip_address, length_loggers FROM ping_logs"
+            query = "SELECT timestamp, pr_code, site_name, ip_address, battery_version, length_loggers FROM ping_logs"
             params = []
             
             conditions = []
