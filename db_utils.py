@@ -92,7 +92,7 @@ class Database:
                 connection.close()
     
     @staticmethod
-    def insert_ping_log(timestamp, pr_code, site_name, ip_address, ping_success, ping_time_ms):
+    def insert_ping_log(timestamp, pr_code, site_name, ip_address, battery_version, ping_success, ping_time_ms):
         """
         Insert or update ping log data based on pr_code
         - If pr_code doesn't exist, insert a new record
@@ -118,10 +118,11 @@ class Database:
                     ip_address = %s, 
                     site_name = %s, 
                     timestamp = %s, 
+                    battery_version = %s,
                     ping_success = %s, 
                     ping_time_ms = %s
                 WHERE pr_code = %s
-                ''', (ip_address, site_name, timestamp, ping_success, ping_time_ms, pr_code))
+                ''', (ip_address, site_name, timestamp, battery_version, ping_success, ping_time_ms, pr_code))
                 
                 logger.info(f"Updated existing record for PR code: {pr_code}")
             else:
