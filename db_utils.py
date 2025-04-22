@@ -407,6 +407,7 @@ class Database:
                         pr_code,
                         site_name,
                         ip_address,
+                        battery_version,
                         ping_success,
                         timestamp,
                         ROW_NUMBER() OVER (PARTITION BY pr_code ORDER BY timestamp DESC) AS rn
@@ -417,6 +418,7 @@ class Database:
                     pr_code,
                     site_name,
                     ip_address,
+                    battery_version,
                     timestamp AS last_check
                 FROM recent_pings
                 WHERE rn = 1 AND ping_success = FALSE
