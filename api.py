@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory, render_template
 import os
 import logging
 from datetime import datetime, timedelta
@@ -14,7 +14,30 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+# Di api.py
+current_dir = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, 
+        template_folder=os.path.join(current_dir, 'templates'),
+        static_folder=os.path.join(current_dir, 'static'))
+
+def convert_to_jakarta_time(timestamp_str):
+    """Convert a timestamp string to Jakarta time (UTC+7)"""
+    if not timestamp_str:
+        return timestamp_str
+        
+    try:
+        # Check if timestamp is already in Jakarta time
+        if datetime.now().astimezone().utcoffset() == timedelta(hours=7):
+            # System is already in Jakarta timezone
+            return timestamp_str
+        else:
+            # Convert UTC time to Jakarta time
+            dt = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+            jakarta_dt = dt + timedelta(hours=7)
+            return jakarta_dt.strftime('%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+        logger.error(f"Error converting timestamp to Jakarta time: {e}")
+        return timestamp_str
 
 @app.route('/', methods=['GET'])
 def index():
@@ -23,6 +46,11 @@ def index():
         'status': 'success',
         'message': 'Ping Data Logger Tracker API is running'
     })
+
+@app.route('/dashboard', methods=['GET'])
+def serve_dashboard():
+    """Serve the dashboard HTML page"""
+    return render_template('index.html')
 
 @app.route('/ping_logs', methods=['GET'])
 def get_ping_logs():
@@ -37,7 +65,7 @@ def get_ping_logs():
         
         # convert time from utc to Jakarta time
         for log in logs:
-            log['timestamp'] = (datetime.strptime(log['timestamp'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+            log['timestamp'] = convert_to_jakarta_time(log['timestamp'])
         
         # Count for pagination
         total_count = len(logs)  # Just a simple implementation
@@ -79,7 +107,7 @@ def get_summary():
         
         # convert last_check from utc to Jakarta time
         for site in down_sites:
-            site['last_check'] = (datetime.strptime(site['last_check'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+            site['last_check'] = convert_to_jakarta_time(site['last_check'])
         
         # Format the response
         return jsonify({
@@ -109,7 +137,7 @@ def get_length_loggers():
         
         # convert time from utc to Jakarta time
         for log in logs:
-            log['timestamp'] = (datetime.strptime(log['timestamp'], '%Y-%m-%d %H:%M:%S') + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+            log['timestamp'] = convert_to_jakarta_time(log['timestamp'])
 
         # Count for pagination
         total_count = len(logs)  # Just a simple implementation
