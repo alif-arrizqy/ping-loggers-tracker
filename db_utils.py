@@ -352,6 +352,13 @@ class Database:
             if uptime_results:
                 uptime_sum = sum(float(result['uptime_percentage']) for result in uptime_results)
                 avg_uptime = round(uptime_sum / len(uptime_results), 2)
+                
+            # Check timezone for Jakarta
+            if datetime.now().astimezone().utcoffset() != timedelta(hours=7):
+                logger.info("Timezone is not set to Jakarta (UTC+7).")
+                timestamp = (datetime.now() + timedelta(hours=7)).strftime('%Y-%m-%d %H:%M:%S')
+            else:
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             
             # Return the summary
             return {
@@ -363,7 +370,7 @@ class Database:
                 'sites_with_loggers': sites_with_loggers,
                 'average_loggers_per_site': avg_loggers_per_site,
                 'time_period': f"Last {hours} hours",
-                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                'timestamp': timestamp
             }
             
         except psycopg2.Error as e:
