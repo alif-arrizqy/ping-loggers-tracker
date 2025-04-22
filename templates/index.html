@@ -629,6 +629,7 @@
         
                 if (data.status === 'success') {
                     updateLoggersInfo(data.data);
+                    updateLoggerTotal(data.data);
                     return data.data;
                 } else {
                     console.error('Error loading loggers data:', data.message);
@@ -669,11 +670,29 @@
         }
 
         // Update logger total
-        function updateLoggerTotal(summary) {
-            if (!summary) return;
+        function updateLoggerTotal(loggersData) {
+            // Check if we're receiving summary or actual logger data
+            if (!loggersData) return;
             
-            const totalLoggers = summary.average_loggers_per_site * summary.sites_with_loggers || 0;
-            document.getElementById('total-loggers').textContent = Math.round(totalLoggers);
+            // If it's logger data (array with length_loggers property)
+            if (Array.isArray(loggersData)) {
+                let totalLoggers = 0;
+                
+                // Sum up all loggers across all sites
+                loggersData.forEach(site => {
+                    if (site && site.length_loggers) {
+                        totalLoggers += parseInt(site.length_loggers) || 0;
+                    }
+                });
+                
+                // Update the UI
+                document.getElementById('total-loggers').textContent = totalLoggers;
+            }
+            // If it's summary data (object with average_loggers_per_site)
+            else if (loggersData.average_loggers_per_site !== undefined && loggersData.sites_with_loggers !== undefined) {
+                const totalLoggers = Math.round(loggersData.average_loggers_per_site * loggersData.sites_with_loggers) || 0;
+                document.getElementById('total-loggers').textContent = totalLoggers;
+            }
         }
 
         // Update down sites section
