@@ -14,7 +14,7 @@ url = os.getenv('API_URL')
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     filename='ping_log_tracker.log'
 )
