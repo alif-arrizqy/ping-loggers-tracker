@@ -517,9 +517,73 @@
     </div>
     
     <script>
+        const ITEMS_PER_PAGE = 10;
+        let currentPage = 1;
+        let sortColumn = null;
+        let sortDirection = 'asc';
+        let filteredSites = [];
+
         // Configure API endpoint
         const API_BASE_URL = window.location.origin;  // Use same origin as dashboard
         const REFRESH_INTERVAL = 60000;  // Refresh every 60 seconds
+
+        const styleTag = document.createElement('style');
+        styleTag.textContent = `
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .pagination-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .pagination-btn {
+            padding: 8px 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pagination-btn:hover:not([disabled]) {
+            background-color: #e9ecef;
+        }
+
+        .pagination-btn[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            color: var(--gray);
+        }
+
+        th.sortable {
+            position: relative;
+        }
+
+        .sort-icon {
+            margin-left: 5px;
+            color: var(--gray);
+        }
+
+        th.sortable:hover {
+            background-color: #e9ecef;
+        }
+        `;
+        document.head.appendChild(styleTag);
 
         // Initialize dashboard when document is loaded
         document.addEventListener('DOMContentLoaded', () => {
@@ -532,7 +596,7 @@
 
         // Set up event listeners
         function setupEventListeners() {
-            // Refresh button click handler
+            // Previous event listeners
             document.getElementById('refresh-data').addEventListener('click', () => {
                 const button = document.getElementById('refresh-data');
                 button.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Refreshing...';
@@ -544,11 +608,11 @@
                 });
             });
             
-            // Site search handler
             document.getElementById('site-search').addEventListener('input', filterSites);
-            
-            // Status filter handler
             document.getElementById('status-filter').addEventListener('change', filterSites);
+            
+            // Setup sortable columns
+            setupSortableColumns();
         }
 
         // Load all dashboard data
@@ -556,12 +620,11 @@
             try {
                 showLoadingState(true);
                 
-                await Promise.all([
-                    loadSummaryData(),
-                    loadPingLogs(),
-                    loadDownSites(),
-                    loadLengthLoggers()
-                ]);
+                // Load data in sequence to ensure proper dependencies
+                await loadSummaryData();
+                await loadPingLogs();
+                await loadLengthLoggers();
+                await loadDownSites();
                 
                 // Update the last updated time
                 document.getElementById('update-time').textContent = new Date().toLocaleString();
@@ -596,7 +659,11 @@
                 
                 if (data.status === 'success') {
                     updateSummaryCards(data.data.summary);
-                    updateLoggerTotal(data.data.summary);
+                    
+                    // Use the summary data for total loggers as a fallback
+                    if (data.data.summary && data.data.summary.sites_with_loggers) {
+                        updateLoggerTotal(data.data.summary);
+                    }
                 } else {
                     console.error('Error loading summary data:', data.message);
                 }
@@ -608,11 +675,15 @@
         // Load ping logs
         async function loadPingLogs() {
             try {
-                const response = await fetch(`${API_BASE_URL}/ping_logs?limit=100`);
+                const response = await fetch(`${API_BASE_URL}/ping_logs?limit=1000`); // Get more sites
                 const data = await response.json();
                 
                 if (data.status === 'success') {
-                    updateSitesTable(data.data);
+                    // Store all sites globally
+                    filteredSites = data.data;
+                    
+                    // Update the table with pagination
+                    updateSitesTable(filteredSites);
                 } else {
                     console.error('Error loading ping logs:', data.message);
                 }
@@ -624,12 +695,12 @@
         // Load loggers data
         async function loadLengthLoggers() {
             try {
-                const response = await fetch(`${API_BASE_URL}/length_loggers`);
+                const response = await fetch(`${API_BASE_URL}/length_loggers?limit=1000`);
                 const data = await response.json();
         
                 if (data.status === 'success') {
+                    console.log("Length loggers loaded:", data.data.length);
                     updateLoggersInfo(data.data);
-                    updateLoggerTotal(data.data);
                     return data.data;
                 } else {
                     console.error('Error loading loggers data:', data.message);
@@ -670,27 +741,23 @@
         }
 
         // Update logger total
-        function updateLoggerTotal(loggersData) {
-            // Check if we're receiving summary or actual logger data
-            if (!loggersData) return;
-            
-            // If it's logger data (array with length_loggers property)
-            if (Array.isArray(loggersData)) {
+        function updateLoggerTotal(data) {
+            // Check if we're receiving summary data (which has sites_with_loggers property)
+            if (data && data.sites_with_loggers !== undefined) {
+                const totalLoggers = Math.round(data.average_loggers_per_site * data.sites_with_loggers) || 0;
+                document.getElementById('total-loggers').textContent = totalLoggers;
+            }
+            // If it's logger data array
+            else if (Array.isArray(data)) {
                 let totalLoggers = 0;
                 
                 // Sum up all loggers across all sites
-                loggersData.forEach(site => {
+                data.forEach(site => {
                     if (site && site.length_loggers) {
                         totalLoggers += parseInt(site.length_loggers) || 0;
                     }
                 });
                 
-                // Update the UI
-                document.getElementById('total-loggers').textContent = totalLoggers;
-            }
-            // If it's summary data (object with average_loggers_per_site)
-            else if (loggersData.average_loggers_per_site !== undefined && loggersData.sites_with_loggers !== undefined) {
-                const totalLoggers = Math.round(loggersData.average_loggers_per_site * loggersData.sites_with_loggers) || 0;
                 document.getElementById('total-loggers').textContent = totalLoggers;
             }
         }
@@ -731,6 +798,75 @@
 
         // Update sites table
         function updateSitesTable(sites) {
+            filteredSites = sites;
+    
+            // Apply any current filter
+            applyFiltersAndSort();
+        }
+
+        function applyFiltersAndSort() {
+            const searchTerm = document.getElementById('site-search').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+            
+            // First apply filters
+            let filtered = filteredSites.filter(site => {
+                const siteName = (site.site_name || '').toLowerCase();
+                const matchesSearch = siteName.includes(searchTerm);
+                
+                const status = site.ping_success ? 'online' : 'offline';
+                const matchesStatus = statusFilter === 'all' || status === statusFilter;
+                
+                return matchesSearch && matchesStatus;
+            });
+            
+            // Then apply sorting if a column is selected
+            if (sortColumn) {
+                filtered.sort((a, b) => {
+                    let valueA = a[sortColumn] || '';
+                    let valueB = b[sortColumn] || '';
+                    
+                    // Special handling for numeric values
+                    if (sortColumn === 'ping_time_ms') {
+                        valueA = parseFloat(valueA) || 0;
+                        valueB = parseFloat(valueB) || 0;
+                    } else {
+                        // For string comparison, convert to lowercase
+                        if (typeof valueA === 'string') valueA = valueA.toLowerCase();
+                        if (typeof valueB === 'string') valueB = valueB.toLowerCase();
+                    }
+                    
+                    if (valueA === valueB) return 0;
+                    
+                    // Determine sort order
+                    if (sortDirection === 'asc') {
+                        return valueA < valueB ? -1 : 1;
+                    } else {
+                        return valueA > valueB ? -1 : 1;
+                    }
+                });
+            }
+            
+            // Calculate pagination
+            const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+            
+            // Adjust current page if needed
+            if (currentPage > totalPages) {
+                currentPage = Math.max(1, totalPages);
+            }
+            
+            // Get current page of items
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const paginatedItems = filtered.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+            
+            // Update the table with paginated items
+            renderSitesTable(paginatedItems, filtered.length);
+            
+            // Update pagination controls
+            renderPagination(filtered.length);
+        }
+        
+        // New function to render the actual table content
+        function renderSitesTable(sites, totalFilteredItems) {
             const tableBody = document.getElementById('sites-table-body');
             tableBody.innerHTML = '';
             
@@ -743,12 +879,16 @@
             
             sites.forEach(site => {
                 const row = document.createElement('tr');
-                row.setAttribute('data-status', site.ping_success ? 'true' : 'false');
+                row.setAttribute('data-status', site.ping_success ? 'online' : 'offline');
                 row.setAttribute('data-site', site.site_name ? site.site_name.toLowerCase() : '');
+                row.setAttribute('data-ip', site.ip_address || '');
+                row.setAttribute('data-pr-code', site.pr_code || '');
                 
                 const status = site.ping_success ? 'online' : 'offline';
                 const statusClass = `status-${status}`;
-                const loggers = site.total_loggers !== undefined ? site.total_loggers : (site.data || 0);
+                
+                // Determine logger count from multiple possible sources
+                const loggers = site.length_loggers || 0;
                 
                 row.innerHTML = `
                     <td>${site.site_name || 'Unknown'}</td>
@@ -762,83 +902,168 @@
                 
                 tableBody.appendChild(row);
             });
+        }
+        
+        // New function to render pagination controls
+        function renderPagination(totalItems) {
+            // Create pagination container if it doesn't exist
+            let paginationContainer = document.getElementById('pagination-container');
+            if (!paginationContainer) {
+                const tableContainer = document.querySelector('.table-container');
+                paginationContainer = document.createElement('div');
+                paginationContainer.id = 'pagination-container';
+                paginationContainer.className = 'pagination';
+                tableContainer.appendChild(paginationContainer);
+            }
             
-            // Apply any active filters
-            filterSites();
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+            
+            // Generate pagination HTML
+            let paginationHTML = `
+                <div class="pagination-info">
+                    Showing ${((currentPage - 1) * ITEMS_PER_PAGE) + 1}-${Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} of ${totalItems} sites
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="prev">
+                        <i class="fas fa-chevron-left"></i> Prev
+                    </button>
+            `;
+            
+            // Show page numbers
+            const maxPageButtons = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+            let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+            
+            // Adjust start page if we're near the end
+            if (endPage - startPage + 1 < maxPageButtons) {
+                startPage = Math.max(1, endPage - maxPageButtons + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                paginationHTML += `
+                    <button class="pagination-btn page-number ${currentPage === i ? 'active' : ''}" data-page="${i}">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            paginationHTML += `
+                    <button class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="next">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            `;
+            
+            paginationContainer.innerHTML = paginationHTML;
+            
+            // Add event listeners to pagination buttons
+            document.querySelectorAll('.pagination-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    
+                    if (page === 'prev') {
+                        currentPage = Math.max(1, currentPage - 1);
+                    } else if (page === 'next') {
+                        currentPage = Math.min(totalPages, currentPage + 1);
+                    } else {
+                        currentPage = parseInt(page);
+                    }
+                    
+                    applyFiltersAndSort();
+                });
+            });
         }
 
         // Update loggers information in the table
         function updateLoggersInfo(loggersData) {
             if (!loggersData || loggersData.length === 0) return;
             
-            // Get existing rows by site name
-            const rows = document.querySelectorAll('#sites-table-body tr');
-            const loggersBySite = {};
+            // Create a map of logger counts by site name AND ip address for more reliable matching
+            const loggersBySiteNameOrIp = {};
             
-            // Create a map of logger counts by site name
             loggersData.forEach(logger => {
                 if (logger.site_name) {
-                    loggersBySite[logger.site_name.toLowerCase()] = logger.length_loggers || 0;
+                    loggersBySiteNameOrIp[logger.site_name.toLowerCase()] = parseInt(logger.length_loggers) || 0;
+                }
+                if (logger.ip_address) {
+                    loggersBySiteNameOrIp[logger.ip_address] = parseInt(logger.length_loggers) || 0;
+                }
+                if (logger.pr_code) {
+                    loggersBySiteNameOrIp[logger.pr_code] = parseInt(logger.length_loggers) || 0;
                 }
             });
             
-            // Update the logger count for each row
-            rows.forEach(row => {
-                const siteName = row.getAttribute('data-site');
-                if (siteName && loggersBySite[siteName] !== undefined) {
-                    // Find the loggers cell (5th column, index 4)
-                    const loggersCell = row.cells[4];
-                    if (loggersCell) {
-                        loggersCell.textContent = loggersBySite[siteName];
-                    }
+            // Update filteredSites with logger data
+            filteredSites = filteredSites.map(site => {
+                const siteName = (site.site_name || '').toLowerCase();
+                const siteIp = site.ip_address;
+                const prCode = site.pr_code;
+                
+                // Try to find a match by site name, IP, or PR code
+                let loggerCount = loggersBySiteNameOrIp[siteName] || 
+                                 loggersBySiteNameOrIp[siteIp] || 
+                                 loggersBySiteNameOrIp[prCode];
+                                 
+                if (loggerCount !== undefined) {
+                    return {...site, length_loggers: loggerCount};
                 }
+                
+                return site;
             });
+            
+            // Re-render the table with updated data
+            applyFiltersAndSort();
         }
 
         // Filter sites in the table
         function filterSites() {
-            const searchTerm = document.getElementById('site-search').value.toLowerCase();
-            const statusFilter = document.getElementById('status-filter').value;
-            
-            const rows = document.querySelectorAll('#sites-table-body tr');
-            let visibleRows = 0;
-            
-            rows.forEach(row => {
-                const siteName = row.getAttribute('data-site') || '';
-                const status = row.getAttribute('data-status');
+            // Reset to first page when filtering
+            currentPage = 1;
+            applyFiltersAndSort();
+        }
+
+        // Add a function to setup sortable columns
+        function setupSortableColumns() {
+            document.querySelectorAll('#sites-table th').forEach((header, index) => {
+                // Skip columns that shouldn't be sortable (like status indicators)
+                if (index === 2) return; // Status column
                 
-                const matchesSearch = siteName.includes(searchTerm);
-                const matchesStatus = statusFilter === 'all' || status === statusFilter;
+                header.style.cursor = 'pointer';
+                header.classList.add('sortable');
                 
-                if (matchesSearch && matchesStatus) {
-                    row.style.display = '';
-                    visibleRows++;
-                } else {
-                    row.style.display = 'none';
-                }
+                // Add icon container
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'sort-icon';
+                iconSpan.innerHTML = ' <i class="fas fa-sort"></i>';
+                header.appendChild(iconSpan);
+                
+                // Set column data attribute
+                const columns = ['site_name', 'ip_address', 'status', 'ping_time_ms', 'total_loggers', 'battery_version', 'timestamp'];
+                header.setAttribute('data-column', columns[index]);
+                
+                header.addEventListener('click', function() {
+                    const column = this.getAttribute('data-column');
+                    
+                    // Toggle direction if clicking the same column
+                    if (sortColumn === column) {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortColumn = column;
+                        sortDirection = 'asc';
+                    }
+                    
+                    // Update sort icons
+                    document.querySelectorAll('.sort-icon').forEach(icon => {
+                        icon.innerHTML = ' <i class="fas fa-sort"></i>';
+                    });
+                    
+                    // Update the clicked column's icon
+                    const icon = sortDirection === 'asc' ? 'fa-sort-up' : 'fa-sort-down';
+                    this.querySelector('.sort-icon').innerHTML = ` <i class="fas ${icon}"></i>`;
+                    
+                    applyFiltersAndSort();
+                });
             });
-            
-            // Show message when no results
-            if (visibleRows === 0 && rows.length > 0) {
-                const tableBody = document.getElementById('sites-table-body');
-                const noResultsRow = document.createElement('tr');
-                noResultsRow.id = 'no-results-row';
-                noResultsRow.innerHTML = '<td colspan="7">No matching sites found</td>';
-                
-                // Remove previous no-results-row if exists
-                const existingNoResults = document.getElementById('no-results-row');
-                if (existingNoResults) {
-                    existingNoResults.remove();
-                }
-                
-                tableBody.appendChild(noResultsRow);
-            } else {
-                // Remove no-results-row if exists and there are visible rows
-                const existingNoResults = document.getElementById('no-results-row');
-                if (existingNoResults) {
-                    existingNoResults.remove();
-                }
-            }
         }
 
     </script>
