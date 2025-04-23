@@ -826,7 +826,7 @@
                     let valueB = b[sortColumn] || '';
                     
                     // Special handling for numeric values
-                    if (sortColumn === 'ping_time_ms') {
+                    if (sortColumn === 'ping_time_ms' || sortColumn === 'length_loggers') {
                         valueA = parseFloat(valueA) || 0;
                         valueB = parseFloat(valueB) || 0;
                     } else {
@@ -1037,8 +1037,8 @@
                 iconSpan.innerHTML = ' <i class="fas fa-sort"></i>';
                 header.appendChild(iconSpan);
                 
-                // Set column data attribute
-                const columns = ['site_name', 'ip_address', 'status', 'ping_time_ms', 'total_loggers', 'battery_version', 'timestamp'];
+                // Set column data attribute - corrected mapping for logger column
+                const columns = ['site_name', 'ip_address', 'status', 'ping_time_ms', 'length_loggers', 'battery_version', 'timestamp'];
                 header.setAttribute('data-column', columns[index]);
                 
                 header.addEventListener('click', function() {
